@@ -66,4 +66,4 @@ The project is built with **Vanilla HTML, CSS, and JavaScript**. No build tools 
 *   Local Storage High Scores.
 
 
-(testing commit)
+(testing commit v1)
