@@ -64,6 +64,3 @@ The project is built with **Vanilla HTML, CSS, and JavaScript**. No build tools 
 *   Basic floating mechanics.
 *   Scrabble scoring.
 *   Local Storage High Scores.
-
-
-(testing commit v1)
