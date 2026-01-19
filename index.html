@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula Words | Premium Typing Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="background-mesh"></div>
+
+    <div id="app">
+        <!-- Start Screen (3-Column Layout) -->
+        <div id="start-screen" class="screen active start-grid">
+
+            <!-- Left: High Scores -->
+            <div class="col-scores panel">
+                <h3>HIGH SCORES</h3>
+                <div class="table-wrapper">
+                    <table id="score-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Diff</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="score-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Center: Main -->
+            <div class="col-main">
+                <h1 class="logo">NEBULA <span class="highlight">WORDS</span></h1>
+                <p class="subtitle">Capture letters. Form words.</p>
+
+                <div class="input-group">
+                    <label for="player-name">PILOT NAME</label>
+                    <input type="text" id="player-name" placeholder="ENTER NAME" autocomplete="off" maxlength="10">
+                </div>
+
+                <button id="start-btn" class="btn primary-btn">INITIALIZE</button>
+            </div>
+
+            <!-- Right: Settings -->
+            <div class="col-settings panel">
+                <h3>SETTINGS</h3>
+
+                <div class="setting-group">
+                    <label>DIFFICULTY</label>
+                    <div class="radio-group">
+                        <label class="radio-btn">
+                            <input type="radio" name="difficulty" value="easy" checked>
+                            <span>EASY (x0.5)</span>
+                        </label>
+                        <label class="radio-btn">
+                            <input type="radio" name="difficulty" value="medium">
+                            <span>MED (x1.0)</span>
+                        </label>
+                        <label class="radio-btn">
+                            <input type="radio" name="difficulty" value="hard">
+                            <span>HARD (x2.0)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label>DURATION: <span id="dur-val">60</span>s</label>
+                    <input type="range" id="duration" min="30" max="120" step="10" value="60">
+                </div>
+            </div>
+        </div>
+
+        <!-- Game UI -->
+        <div id="game-ui" class="screen">
+            <header class="hud">
+                <div class="hud-controls">
+                    <button id="main-menu-btn" class="btn secondary-btn small-btn">MENU</button>
+                    <button id="reset-game-btn" class="btn secondary-btn small-btn">RESET</button>
+                </div>
+                <div class="hud-item score-container">
+                    <span class="label">SCORE</span>
+                    <span id="score-display" class="value">0</span>
+                </div>
+                <div class="hud-item timer-container">
+                    <span class="label">TIME</span>
+                    <span id="timer-display" class="value">60</span>
+                </div>
+            </header>
+
+            <main class="game-area">
+                <div id="letter-box" class="letter-box">
+                    <!-- Floating letters injected here -->
+                </div>
+            </main>
+
+            <footer class="input-area">
+                <input type="text" id="word-input" placeholder="Type word..." autocomplete="off" autofocus>
+                <div id="feedback" class="feedback"></div>
+            </footer>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="screen">
+            <h2>SESSION COMPLETE</h2>
+            <div class="final-score-container">
+                <span class="label">FINAL SCORE</span>
+                <span id="final-score" class="value">0</span>
+            </div>
+            <button id="restart-btn" class="btn secondary-btn">Reboot System</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/dictionary.js"></script>
+    <script src="js/physics.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
